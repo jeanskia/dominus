@@ -1,0 +1,14 @@
+<div class="col-lg-3">
+    <div class="list-group">
+        <a href="{{path('mission.details',{slug:item.slug,id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.details',{slug:item.slug,id:item.id}) ? 'active' }}">plus d'info sur la mission</a>
+        <a href="{{path('mission.assign',{id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.assign',{id:item.id}) ? 'active' }}">Assigner des Techniciens</a>
+        <a href="{{path('mission.assignEies',{id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.assignEies',{id:item.id}) ? 'active' }}">Techniciens EIES</a>
+        <a href="{{path('mission.assignEes',{id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.assignEes',{id:item.id}) ? 'active' }}">Techniciens EES</a>
+        <a href="{{path('mission.assignAe',{id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.assignAe',{id:item.id}) ? 'active' }}">Techniciens AE</a>
+        <a href="{{path('mission.assignCom',{id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.assignCom',{id:item.id}) ? 'active' }}">Service Communication</a>
+        <div class="card-header text-muted">
+            /
+        </div>
+        <a href="{{path('mission.assignDriv',{id:item.id}) }}" class="list-group-item list-group-item-action {{ is_subpath('mission.assignDriv',{id:item.id}) ? 'active' }}">Chauffeur ANDE</a>
+    </div>  
+</div>

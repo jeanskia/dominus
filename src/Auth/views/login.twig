@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>ANDE | connection home page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../public/assets/css/floating-labels.css" rel="stylesheet">
+  </head>
+
+  <body>
+     
+    <form class="form-signin" action="{{ path('auth.login') }}" method="post">
+      <div class="text-center mb-4">          
+        <img class="mb-4" src="../../public/assets/images/ande_ci.png" alt="" width="150" height="150">
+        <h1 class="h3 mb-3 font-weight-normal">A.N.D.E</h1>
+        <p>Agence Nationale De l'Environnement</p>
+      </div>
+         {%if flash('succes')%}
+                        <div class="alert alert-success">
+                            {{ flash('succes') }}
+                        </div>
+                    {% endif %}
+                    {%if flash('error')%}
+                        <div class="alert alert-danger">
+                            {{ flash('error') }}
+                        </div>
+          {% endif %}
+        {{ csrf_input() }}
+        {{ field('username',null,'Nom d\'utilsateur') }}
+        {{ field('password',null,'Mot de passe',{type:'password'}) }}
+     
+      <button class="btn btn-lg btn-primary btn-block">Se connecter</button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+    </form>
+  </body>
+</html>

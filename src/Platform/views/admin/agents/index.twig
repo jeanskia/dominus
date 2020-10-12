@@ -1,0 +1,35 @@
+{% extends "@admin/layout.twig" %}
+
+{%block title 'Agence National de L\'Environnement-platform'%}
+{% block body %}
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Agents &nbsp;&nbsp;&nbsp;
+            <a href="{{path('platform.admin.agent.create')}}" class="btn btn-success">Ajouter</a></h6>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nom Prénoms</th>
+                <th scope="col" colspan="3">action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set token_input = csrf_input() %}
+                {% for item in items %}
+            <tr>
+                <td>{{item.name |upper}} {{item.first_name}}</td>
+                <td><a href="{{path('platform.profile',{slug: item.slug, id: item.id})}}"  class="btn btn-primary">Profile</a></td>
+                <td><a href="{{path(routePrefix~'.edit',{id:item.id})}}"  class="btn btn-primary">Editer</a></td>
+                <td>
+                    <form action="{{path(routePrefix~'.delete',{id:item.id}) }}" method="post">                        
+                        <input type="hidden" name="_method" value="DELETE" >
+                        <button  class="btn btn-danger">Supprimer</button>
+                        {{ token_input | raw }}
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+     {{ paginate(items,'platform.admin.agent.index') }}
+{% endblock %}

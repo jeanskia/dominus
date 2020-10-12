@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+
+{%block title 'Agence National de L\'Environnement-platform'%}
+{% block body %}
+          
+<div class="col-lg-6">
+    <table style="width:100%;">
+        <tr>
+            <td style="width:50%;">Service </td><td style="width:25%;"><a href="{{path('platform.admin.service.index')}}" class="btn btn-primary btn-sm">Afficher</a> 
+                             </td><td style="width:25%;"><a href="{{path('platform.admin.service.create')}}" class="btn btn-success btn-sm">Ajouter</a></td>
+        </tr>
+        <tr><td> |</td></tr>
+        <tr>
+            <td style="width:50%;">Profession </td><td style="width:25%;"><a href="{{path('platform.admin.profession.index')}}" class="btn btn-primary btn-sm">Afficher</a> 
+                             </td><td style="width:25%;"><a a href="{{path('platform.admin.profession.create')}}" class="btn btn-success btn-sm">Ajouter</a></td>
+        </tr>
+        <tr><td> |</td></tr>
+        <tr>
+            <td style="width:50%;">Diplôme </td><td style="width:25%;"><a href="{{path('platform.admin.diplome.index')}}" class="btn btn-primary btn-sm">Afficher</a> 
+                             </td><td style="width:25%;"><a href="{{path('platform.admin.diplome.create')}}" class="btn btn-success btn-sm">Ajouter</a></td>
+        </tr>
+    </table>
+        
+   
+</div>
+{% endblock %}

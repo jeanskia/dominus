@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> {% block title "AGENCE NATIONAL DE L'ENVIRONNEMENT" %}</title>
+
+    <!-- Bootstrap core CSS -->
+        <link type="text/css" rel="stylesheet" href="../../public/assets/css/bootstrap.min.css" > 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+    <!-- Custom styles for this template -->
+         <link type="text/css" rel="stylesheet" href="../../public/assets/css/offcanvas-custom.css" > 
+  </head>
+
+  <body class="bg-light">
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{path('admin')}}">ADMIN</a>
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    {{ main_menu() }}                 
+                </ul>
+                {% if current_user() %}                  
+                <div class="navbar-nav ">                    
+                    <form class="form-inline " method="post" action="{{ path('auth.logout') }}"> 
+                        <span class="navbar-text" >
+                        Connecté en tant que | <b> {{ current_user().username }} </b>
+                    </span>
+                        {{ csrf_input() }}
+                        <button class="btn btn-danger my-2 my-sm-0">Se déconnecter</button>
+                    </form>                
+                </div>
+                {% else %}
+                    <div class="nav-item active">
+                        <a class="btn btn-primary my-2 my-sm-0" href="{{ path('auth.login') }}"> Se connecter</a>
+                    </div>
+                {% endif %}
+                    
+            </div>
+    </nav>  
+
+    <main role="main" class="container">
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-success rounded box-shadow">
+          <img class="mr-3" src="http://ande.intranet/public/assets/images/ande_ci.png" alt="" width="48" height="48">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">A.N.D.E | <small>Agence Nationale De l'Environnement </small></h6>
+            <small><em>Guichet Unique National des Evaluations Environnementales, pour l'avènement du Développement Durable en côte d'Ivoire</em></small>
+        </div>
+      </div>
+         {%if flash('succes')%}
+                        <div class="alert alert-success">
+                            {{ flash('succes') }}
+                        </div>
+                    {% endif %}
+                    {%if flash('error')%}
+                        <div class="alert alert-danger">
+                            {{ flash('error') }}
+                        </div>
+                    {% endif %}
+         {% block body %}
+         {% endblock %}
+    </main>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../public/assets/js/bootstrap.min.js"></script>
+    <script src="../../public/assets/js/offcanvas.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="../../public/assets/js/flatpickr.js"></script>
+    <script src="../../public/assets/js/flatpickr.fr.js"></script>    <script >
+            flatpickr('.datepicker', {
+                enableTime: true,
+                altInput: true,
+                altFormat: 'J F Y',
+                dateFormat: 'Y-m-d'
+            })
+        </script>
+  </body>
+</html>

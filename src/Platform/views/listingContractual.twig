@@ -1,0 +1,29 @@
+{% extends "layout.twig" %}
+
+{%block title 'Agence National de L\'Environnement-platform - contractuels'%}
+{% block body %}
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Contractuels - ANDE</h6>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nom Prénoms</th>
+                <th scope="col">Matricule</th>
+                <th scope="col">Emploi</th>
+                <th scope="col">Service</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for item in items %}
+            <tr>
+                <td>{{item.name | upper}} {{item.first_name}}</td>
+                <td>{{ item.registration }}</td>
+                <td>{{ item.profession}}</td>
+                 <td>{{ item.service }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+            {{ paginate(items,'platform.contractuel') }}  
+{% endblock %}

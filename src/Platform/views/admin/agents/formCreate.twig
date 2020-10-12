@@ -1,0 +1,79 @@
+{{ csrf_input() }}
+<div class="row">
+    <div class="col-md-4">
+        {{ field('name',item.name,"Nom ") }}       
+    </div>
+     <div class="col-md-5">
+       {{ field('first_name',item.first_name,"Prénoms ") }}  
+    </div>
+    <div class="col-md-3">
+       {{ field('registration',item.registration,"Matricule ") }}  
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+       {{ field('birth_date',item.birth_date,"Date de naissance",{class:'datepicker'}) }}
+    </div>
+    <div class="col-md-4">
+       {{ field('place_of_birth',item.place_of_birth,"Lieu de naissance") }}
+    </div>
+    <div class="col-md-2">
+       {{ field('sex_id',item.sex_id,"Sexe",{options:sex}) }}
+    </div>
+    <div class="col-md-2">
+       {{ field('maritalstatus_id',item.maritalstatus_id,"Situation Mtle",{options:maritalStatus}) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+      {{ field('father_name',item.father_name,"Nom du père") }}
+    </div>
+     <div class="col-md-4">
+       {{ field('mother_name',item.mother_name,"Nom de la mère") }}
+    </div>
+     <div class="col-md-4">
+       {{ field('contact_emergency',item.contact_emergency,"A contacter en cas d'urgence") }}
+    </div>
+</div> 
+<div class="row">
+    <div class="col-md-4">
+       {{ field('e_mail',item.e_mail,"E-mail") }}
+    </div>
+     <div class="col-md-4">
+       {{ field('phone1',item.phone1,"Telephone 1") }}
+    </div>
+    <div class="col-md-4">
+       {{ field('phone2',item.phone2,"Telephone 2") }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+      {{ field('service_taked_at',item.service_taked_at,"Prise de service",{class:'datepicker'}) }}
+    </div>
+    <div class="col-md-4">
+       {{ field('service_id',item.service_id ,"Service",{options:services}) }}
+    </div>
+    <div class="col-md-4">
+       {{ field('Profession_id',item.profession_id ,"Emploi",{options:profession}) }}
+    </div>
+    <div class="col-md-2">
+      {{ field('function_id',item.function_id ,"Fonction",{options:function}) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+      {{ field( 'child' , item.child, "Nombre d'enfant",{options:child}) }}
+    </div>
+    <div class="col-md-2">
+      {{ field( 'category_id' , item.category_id , "Categorie",{options:category}) }}
+    </div>
+    <div class="col-md-2">
+       {{ field( 'grade_id', item.grade_id , "Grade",{options:grade}) }}
+    </div>
+    <div class="col-md-4">
+       {{ field( 'diploma_id' , item.diploma_id , "Diplôme",{options:diploma}) }}
+    </div>
+    <div class="col-md-2">
+       {{ field( 'status_id' , item.status_id , "Statut",{options:status}) }}
+    </div>    
+</div>

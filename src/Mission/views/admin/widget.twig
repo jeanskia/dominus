@@ -1,0 +1,60 @@
+
+<div class="my-3 p-3 bg-white rounded box-shadow">
+    <h6 class=" border-gray pb-2 mb-0"><span data-feather="bar-chart-2"></span> Mission - {{ "now"|date("m/Y") }} </h6>           
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="{{path('mission.index')}}" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-dark" style="background-color:#ff5c00">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">ANDE</h6>
+                        <h1>{{current_month}}</h1>
+                    </div>
+                    <small><span data-feather="bar-chart-2"></span> mission réalisé</small>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-dark" style="background-color:#ff5c00">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">EIES</h6>
+                        <h1>{{EIES}}</h1>
+                    </div>
+                    <small><span data-feather="bar-chart-2"></span>mission réalisé</small>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-dark" style="background-color:#ff5c00">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">EES</h6>
+                        <h1>{{EES}}</h1>
+                    </div>
+                    <small><span data-feather="bar-chart-2"></span>mission réalisé</small>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-dark" style="background-color:#ff5c00">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">AUDITE ENVIRONNEMENTAL</h6>
+                        <h1>{{AE}}</h1>
+                    </div>
+                    <small><span data-feather="bar-chart-2"></span>mission réalisé</small>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="my-3 p-3 bg-white rounded box-shadow">
+    <h6 class="border-bottom border-gray pb-2 mb-0"><span data-feather="bar-chart-2"></span> Mission - {{ "now"|date("Y") }} </h6>           
+    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> 
+</div>

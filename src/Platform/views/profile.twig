@@ -1,0 +1,127 @@
+{% extends "layout.twig" %}
+    
+{%block title 'Agence National de L\'Environnement-platform'%}
+{% block body %}
+ <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class=" border-gray pb-2 mb-0">Personnel - ANDE</h6>
+    <div class="row">                     
+        <div class="col-md-6">               
+                <div class="panel panel-info">
+                   <!-- <div class="panel-heading"><i>INFORMATION GENERALE</i></div> -->
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td>NOM</td>
+                                <td ><b>{{item.name | upper}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>PRENOMS</td>
+                                <td > <b>{{item.first_name}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>DATE DE NAISSANCE</td>
+                                <td><b>{{item.birth_date|date("d/m/Y")}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>LIEU DE NAISSANCE</td>
+                                <td><b>{{item.place_of_birth}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>TELEPHONE</td>
+                                <td><b>{{item.phone1}}</b> <b>{{item.phone2}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>EMAIL</td>
+                                <td><b>{{item.e_mail}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>SEXE</td>
+                                <td><b>{{ item.sexe }}</b> </td>
+                            </tr>
+                            <tr>
+                                <td>SIT. MATRIMONIALE</td>
+                                <td><b>{{item.maried}}</b> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>  
+        <div class="col-md-6">               
+                <div class="panel panel-info">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td  >TYPE </td>
+                                <td  ><b>{{item.statut}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>FONCTION </td>
+                                <td class="text-uppercase"><b>{{item.fonction | lower}}</b></td>
+                            </tr>                            
+                            <tr>
+                                <td>CATEGORIE</td>
+                                <td><b>{{item.category}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>GRADE</td>
+                                <td><b>{{item.grade}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>MATRICULE</td>
+                                <td><b>{{item.registration}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>EMPLOI</td>
+                                <td><b>{{item.profession}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>SERVICE</td>
+                                <td><b>{{item.service}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>PRISE SERV.</td>
+                                <td><b>{{item.service_taked_at|date("d/m/Y")}}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+                            <hr>                     
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Information supplémentaire</h4>
+  <table style="width:100%;">
+      <tr>
+          <td style="width:15%;" >DIPLOME </td><td style="width:45%" >: <b>{{item.diplome}}</b></td>
+      </tr>
+       <tr>
+          <td style="width:15%;" >NOMBRE D'ENFANT</td><td style="width:45%" >: <b>{{item.child}}</b></td>
+      </tr>
+      <tr>
+          <td style="width:15%;" >NOM DU PERE </td><td style="width:45%" >: <b>{{item.father_name}}</b></td>
+      </tr>
+      <tr>
+          <td style="width:15%;" >NOM DE LA MERE </td><td style="width:45%" >: <b>{{item.mother_name}}</b></td>
+      </tr>
+      <tr>
+          <td style="width:15%;" >EN CAS D'URGENCE </td><td style="width:45%" >: <b>{{item.contact_emergency}}</b></td>
+      </tr>
+    <!--  <tr>
+          <td style="width:15%;" >ENREGISTRE LE </td><td style="width:45%" >: <b>{{item.created_at|date("m/d/Y H:i:s")}}</b></td>
+      </tr>
+      <tr>
+          <td style="width:15%;" >MISE A JOURS LE </td><td style="width:45%" >: <b>{{item.updated_at|date("m/d/Y H:i:s")}}</b></td>
+      </tr> -->
+  </table>
+</div>
+</div>                          
+<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+    <div class="card-block" style="padding: 10px;color: #ffffff">
+        <h3 class="card-title" ><b>{{item.slug}}</b></h3>
+    <p>
+       <!-- <a href="<b>{{path('platform.admin.agent.edit',{id:item.id})}}</b>" class="btn btn-primary " >Editer</a> 
+        <button href="#" class="btn btn-danger " disabled >Supprimer </button>  !-->
+    </p>
+  </div>
+</div>
+{% endblock %}

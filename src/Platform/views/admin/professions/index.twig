@@ -1,0 +1,28 @@
+{% extends "@admin/layout.twig" %}
+
+{%block title 'Agence National de L\'Environnement-platform'%}
+{% block body %}
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">professions &nbsp;&nbsp;&nbsp;
+            <a href="{{path('platform.admin.profession.create')}}" class="btn btn-success">Ajouter</a></h6>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">profession</th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody>
+                 {% set i = 1 %}
+                {% for item in items %}
+            <tr>
+               <td>{{loop.index}} </td>
+                <td>{{item.name}}</td>
+                <td><a href="{{path(routePrefix~'.edit',{id:item.id})}}"  class="btn btn-primary">Editer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{{ csrf_input() }}
+    <div class="col-md-7">
+       {{ field('service_id',item.service_id,"Service",{options:services}) }}
+    </div>
+    <div class="col-md-7">
+       {{ field('type_mission_id',item.type_mission_id,"Type de mission",{options:type_mission}) }}
+    </div>
+    <div class="col-md-7">
+        {{ field('name',item.name,"Objet de la mission ",{type:'textarea'}) }}       
+    </div>
+    <div class="col-md-7">
+       {{ field('location',item.location,"Lieu ") }}  
+    </div>
+    <div class="col-md-7">
+       {{ field('start_mission',item.start_mission,"debut de la mission",{class:'datepicker'}) }}
+    </div>
+    <div class="col-md-7">
+       {{ field('end_mission',item.end_mission,"fin de la mission",{class:'datepicker'}) }}
+    </div>
+    <div class="col-md-7">        
+       {{ field('transport',item.transport,"Moyen de transport",{options:transport}) }}
+    </div>
+    <div class="col-md-7">
+       {{ field('budget_allocation',item.budget_allocation,"Imputation budgétaire",{options:budget_allocation}) }}
+    </div>
+     <div class="col-md-7">
+       {{ field('upper_hierarchy_id',item.agent_id,"supérieur hiérarchique",{options:upper_hierarchy}) }}
+    </div>
+    

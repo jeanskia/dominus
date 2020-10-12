@@ -1,0 +1,11 @@
+{% extends "@admin/layout.twig" %}
+
+{% block body %}
+    <h1>Enregistrer un nouveau diplome</h1><hr>
+    <form method="post" action="{{path(routePrefix~'.create') }}">
+      <div class="col-7">
+          {% include viewPath~'/formCreate.twig'%}            
+            <button type="submit" class="btn btn-block btn-success">Enregistrer </button>
+        </div>        
+    </form> 
+{% endblock %}

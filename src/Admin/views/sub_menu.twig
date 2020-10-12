@@ -1,0 +1,6 @@
+ <div class="nav-scroller bg-white box-shadow">
+      <nav class="nav nav-underline">
+        <a class="nav-link {{ is_subpath('admin') ? 'active' }}" href="{{path('admin')}}">Dashboard</a>
+         {{ admin_menu() }}            
+      </nav>
+    </div>

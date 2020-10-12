@@ -1,0 +1,31 @@
+{% extends "layout.twig" %}
+
+{%block title 'Agence National de L\'Environnement-platform'%}
+{% block body %}
+     <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Personnel - ANDE</h6>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nom Prénoms</th>
+                <th scope="col">Matricule</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Prise de service</th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for item in items %}
+            <tr>
+                <td>{{item.name |upper}} {{item.first_name}}</td>
+                <td>{{ item.registration }}</td>
+                <td>{{ item.phone1}}</td>
+                 <td>{{ item.service_taked_at|date("m/d/Y") }}</td>
+                <td><a href="{{path('platform.profile',{slug: item.slug, id: item.id})}}"  class="btn btn-primary">Profile</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+     </div>
+     {{ paginate(items,'platform.index') }}       
+{% endblock %}

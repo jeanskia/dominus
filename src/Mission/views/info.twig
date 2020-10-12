@@ -1,0 +1,49 @@
+<div class="col-lg-9">
+          <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">*{{item.type_mission }}</h4>
+              <table width="100%">
+                  <tr>
+                      <td width="30%"><b>Service</b> </td> <td width="70%">: <b>{{item.service }}</b>  </td>                      
+                  </tr>
+                  <tr>
+                      <td width="30%"><b>Objet de la mission</b> </td> <td width="70%">: <b>{{item.name }} </b>  </td>
+                  </tr> 
+                  <tr>                      
+                      <td width="30%">Lieu </td> <td width="70%">: {{item.location }}   </td>
+                  </tr>
+                  <tr>
+                      <td width="30%">Début de la mission  </td> <td width="70%">: {{item.start_mission|date("d/m/Y") }}   </td>
+                  </tr>
+                  <tr>                      
+                      <td width="30%"> fin de la mission </td> <td width="70%">: {{item.end_mission|date("d/m/Y")}}   </td>
+                  </tr>
+                  <tr>
+                      <td width="30%">durée de la mission</td> <td width="70%">: {{item.duration_mission }}   </td>
+                  </tr>
+                  <tr>                      
+                      <td width="30%"> Allocation budgétaire</td> <td width="70%">: {{item.budget_allocation }}   </td>
+                  </tr>
+                  <tr>                      
+                      <td width="30%"> Véhicule</td> <td width="70%">: {{item.transport}}   </td>
+                  </tr>
+              </table>
+          </div> 
+             {% for agent in agents %}
+            <div class="alert alert-primary" role="alert">
+                {% set token_input = csrf_input() %}
+                <table width="100%">
+                    <tr>
+                        <td width="50%"><b>{{agent.name}} {{agent.first_name}}</b></td> <td width="25%">
+                            <a class="btn btn-primary btn-sm" href="{{path('mission.generate.odm',{slugAgent:agent.name~agent.first_name,idAgent:agent.agent_id,idMis:item.id})}}" target="_blank" class="alert-link">ordre de mission</a></td>
+                        <td width="25%">
+                    <form action="{{path('mission.participant.delete',{slugMission:item.slug,idMission:item.id,id:agent.id}) }}" method="post">                        
+                        <input type="hidden" name="_method" value="DELETE" >
+                        <button  class="btn btn-danger btn-sm">retirer de la mission</button>
+                        {{ token_input | raw }}
+                    </form></td>
+                    </tr>
+                </table>           
+            </div>
+            {% endfor %}
+            
+        </div>

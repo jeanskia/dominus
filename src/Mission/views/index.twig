@@ -1,0 +1,31 @@
+{% extends "layout.twig" %}
+
+{% block title 'mission ANDE' %}
+{% block body %}  
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">mission - <span class="badge badge-success"> {{ month() }} </span></h6>   
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Objet de la mission</th>
+                <th scope="col">Localité</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set i = 1 %}
+                {% for item in items %}
+            <tr>
+                <td>{{loop.index}} </td>
+                <td>{{item.name}} </td>
+                <td>{{ item.location }}</td>
+                <td>{{ item.start_mission|date("d/m/Y")}}</td>
+                <td><a href="{{path('mission.details',{slug: item.slug ,id: item.id}) }}" class="btn btn-primary">Détail</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,56 @@
+ <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class=" border-gray pb-2 mb-0">Personnel </h6>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a href="{{ path('platform.admin.agent.index') }}" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-primary">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">Agent{%if count > 1%}s {%endif%}</h4>
+                    <h1>{{ count }}</h1>
+                </div>
+                <small><span data-feather="users"></span> Nombre total des agents</small>
+            </a>
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a href="{{ path('platform.fonctionnaires') }}" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-primary">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">Fonctionnaire{%if count > 1%}s {%endif%}</h4>
+                    <h1>{{ countf }}</h1>
+                </div>
+                <small><span data-feather="users"></span> Nombre des Fonctionnaires</small>
+            </a>
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a href="{{ path('platform.contractuel') }}" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-primary">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">Contractuel{%if count > 1%}s {%endif%}</h4>
+                    <h1>{{ countc }}</h1>
+                </div>
+                <small><span data-feather="users"></span> Nombre des contractuels</small>
+            </a>
+
+        </div>
+    </div>
+</div>
+ </div>
+
+<div class="my-3 p-3 bg-white rounded box-shadow">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+    {% for agent in recent_up %}
+    <div class="media text-muted pt-3">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">{{ agent.name|upper }} {{ agent.first_name }} </strong><br>
+            {{ agent.profession|upper }} affecté au Service {{ agent.service|upper }} Matricule {{ agent.registration|upper }}.
+        </p>
+    </div>
+    {% endfor %}
+    <small class="d-block text-right mt-3">
+        <a href="#">.</a>
+    </small>
+</div>                
